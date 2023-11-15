@@ -104,3 +104,17 @@ db.sales.aggregate([
 		quantity: {$count: {}} 
 		}}
 	])
+
+/*
+Ejercicio 14
+Indicar la cantidad ventas realizadas por cada método de pago
+en la ubicación de Seattle, que superen las 50 ventas.
+*/
+db.sales.aggregate([
+	{ $match: {storeLocation: "Seattle"}},
+	{ $group: {
+		_id: "$purchaseMethod",
+		quantity: {$count: {}} 
+		}},
+	{ $match: {quantity: {$gt: 100}}}
+	])
