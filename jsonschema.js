@@ -105,3 +105,18 @@ db.createCollection("alojamientos", {
 		}
 	}
 })
+
+db.alojamientos.insertOne({
+    nombre: "Casa de campo",
+    ubicacion: {
+        latitud: 40.416775,
+        longitud: -3.703790,
+        ciudad: "Madrid"
+    },
+    anfitrion: {
+        nombre: "Juan",
+        apellido: "García",
+        edad: 35
+    },
+    servicios: ["wifi", "piscina", "lavanderia"]
+})
